@@ -25,7 +25,7 @@ export default function Casos() {
     return (
       <main>
         <div>
-          <h1>Casos</h1>
+          <h1>Facturas</h1>
           <ul>
             {casos.map(caso => (
               <p>{caso.diagnostico}</p>
