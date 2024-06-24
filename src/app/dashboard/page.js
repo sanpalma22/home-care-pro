@@ -2,7 +2,7 @@ export default function Dashboard() {
     return (
       <main >
         <div>
-        <h1>aisjoasijdiod</h1>
+        <h1>Dashboard</h1>
         </div>
       </main>
     );

@@ -1,3 +1,4 @@
+import styles from './header.css'
 export default function Header ({texto}) {
     return(
         <header>
