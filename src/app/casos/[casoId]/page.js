@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 
 import { useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
@@ -10,7 +11,7 @@ export default function Caso() {
   useEffect(() => {
     async function fetchCaso() {
       try {
-        const response = await fetch(`http://localhost:5000/casos/14`);
+        const response = await fetch(`http://localhost:5000/casos/5`);
         if (!response.ok) {
           throw new Error("Error al obtener los datos");
         }
@@ -26,10 +27,12 @@ export default function Caso() {
 
   
   return (
-    <div>
+    <div className="infoCaso">
+      <p>Persona: {caso.NombrePaciente}</p>
+      <p>Nombre prerstador: {caso.NombrePrestador}</p>
       <p>Fecha de Ocurrencia: {caso.FechaOcurrencia}</p>
       <p>Fecha de Solicitud: {caso.FechaSolicitud}</p>
-      <p>Diagnóstico: {caso.Diagnostico}</p>
+      <Link href={`/casos/${caso.IdCaso}/devolucion`}>Devoluciones del médico</Link>
     </div>
   );
 }

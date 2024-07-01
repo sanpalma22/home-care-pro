@@ -28,12 +28,12 @@ export default function Casos() {
         <ul>
           {casos.map((caso) => (
             <div key={caso.IdCaso}>
-              <p>{caso.NombrePaciente}</p>
-              <p>{caso.Diagnostico}</p>
-              <p>{caso.NombrePrestador}</p>
+              <p>Nombre: {caso.NombrePaciente}</p>
+              <p>Diagnostico: {caso.Diagnostico}</p>
+              <p>Nombre prerstador: {caso.NombrePrestador}</p>
               <p>{caso.NombrePrestacion}</p>
-              <p>{caso.FechaOcurrencia}</p>
-              <p>{caso.FechaSolicitud}</p>
+              <p>Fecha de lo ocurrido: {caso.FechaOcurrencia}</p>
+              <p>Fecha de solicitud: {caso.FechaSolicitud}</p>
               <Link href={`casos/${caso.IdCaso}`}>Ver info</Link>
             </div>
           ))}
