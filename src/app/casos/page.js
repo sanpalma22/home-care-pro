@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
-
+import styles from "./casos.module.css"
 export default function Casos() {
   const [casos, setCasos] = useState([]);
   useEffect(() => {
@@ -24,21 +24,34 @@ export default function Casos() {
   return (
     <main>
       <div>
-        <h1>Casos Activos</h1>
-        <ul>
-          {casos.map((caso) => (
-            <div key={caso.IdCaso}>
-              <p>Nombre: {caso.NombrePaciente}</p>
-              <p>Diagnostico: {caso.Diagnostico}</p>
-              <p>Nombre prerstador: {caso.NombrePrestador}</p>
-              <p>{caso.NombrePrestacion}</p>
-              <p>Fecha de lo ocurrido: {caso.FechaOcurrencia}</p>
-              <p>Fecha de solicitud: {caso.FechaSolicitud}</p>
-              <Link href={`casos/${caso.IdCaso}`}>Ver info</Link>
-            </div>
-          ))}
-        </ul>
-      </div>
+            <h1>Casos Activos</h1>
+            <table className={styles.casosTable}>
+                <thead>
+                    <tr>
+                        <th>Nombre Paciente</th>
+                        <th>Diagnóstico</th>
+                        <th>Nombre Prestador</th>
+                        <th>Nombre Prestación</th>
+                        <th>Fecha de Ocurrencia</th>
+                        <th>Fecha de Solicitud</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {casos.map((caso) => (
+                        <tr key={caso.IdCaso}>
+                            <td>{caso.NombrePaciente}</td>
+                            <td>{caso.Diagnostico}</td>
+                            <td>{caso.NombrePrestador}</td>
+                            <td>{caso.NombrePrestacion}</td>
+                            <td>{caso.FechaOcurrencia}</td>
+                            <td>{caso.FechaSolicitud}</td>
+                            <td><Link href={`casos/${caso.IdCaso}`}>Ver info</Link></td>
+                        </tr>
+                    ))}
+                </tbody>
+            </table>
+        </div>
     </main>
   );
 }

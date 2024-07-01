@@ -1,5 +1,8 @@
+"use client";
+import { useState,useEffect } from "react";
+
 export default function Devolucion(){
-    const [devoluciones, setDevoluciones] = useState(['']);
+    const [devoluciones, setDevoluciones] = useState([]);
     useEffect(() => {
         async function fetchDevoluciones() {
         try {

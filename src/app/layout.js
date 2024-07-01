@@ -15,17 +15,22 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body>
         <div className="container">
-               
-          <Header texto={"Header"}></Header>
+        <Header texto={"Header"}></Header>
           <div className="content">
-            <div className="vertical-menu">
+            <div className="sidebar">
+              
+              <div className="sidebar-header"></div>
+              
               <Link href="/dashboard">Dashboard</Link>
               <Link href="/casos">Casos</Link>
               <Link href="/prestadores">Prestadores</Link>
               <Link href="/facturas">Facturas</Link>
             </div>
           </div>
+          
           <div className="main-content">{children}</div>
+          
+
         </div>
       </body>
     </html>

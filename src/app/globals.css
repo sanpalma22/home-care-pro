@@ -3,6 +3,7 @@
   padding: 0;
   margin: 0;
   font-family: sans-serif;
+  
 }
 
 body{
@@ -10,12 +11,14 @@ body{
 }
 
 
-.vertical-menu{
-  background-color: #fff;
+.sidebar{
+  background-color: #ffa5a5;
   display: flex;
   flex-direction: column;
   width: 15%;
-  height:max-content;
+  height: 100vh;
+  position: fixed;
+  
   a{
     padding: 10px 5px;
   }
