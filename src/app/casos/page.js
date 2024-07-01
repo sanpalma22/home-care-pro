@@ -4,17 +4,15 @@ import React, { useEffect, useState } from "react";
 
 export default function Casos() {
   const [casos, setCasos] = useState([]);
-
   useEffect(() => {
     async function fetchCasos() {
       try {
-        const response = await fetch("http://localhost:5000/api/casos");
+        const response = await fetch("http://localhost:5000/casos");
         if (!response.ok) {
           throw new Error("Error al obtener los datos");
         }
         const data = await response.json();
         setCasos(data);
-        console.log(data);
       } catch (error) {
         console.error("Error al obtener los casos:", error);
       }

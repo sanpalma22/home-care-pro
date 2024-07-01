@@ -15,6 +15,7 @@ body{
   display: flex;
   flex-direction: column;
   width: 15%;
+  height:max-content;
   a{
     padding: 10px 5px;
   }

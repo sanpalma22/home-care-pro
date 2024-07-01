@@ -15,6 +15,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body>
         <div className="container">
+               
           <Header texto={"Header"}></Header>
           <div className="content">
             <div className="vertical-menu">

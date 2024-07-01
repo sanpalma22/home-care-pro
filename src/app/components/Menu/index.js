@@ -1,5 +1,5 @@
-// export default function Menu ({texto}) {
-//     return(
-        
-//     )
-// }
+export default function Menu () {
+    return(
+        <></>
+    )
+}
