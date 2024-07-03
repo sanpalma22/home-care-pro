@@ -1,12 +1,15 @@
 "use client";
+import { useParams } from "next/navigation";
 import { useState,useEffect } from "react";
 
 export default function Devolucion(){
+    const params = useParams();
     const [devoluciones, setDevoluciones] = useState([]);
+
     useEffect(() => {
         async function fetchDevoluciones() {
         try {
-            const response = await fetch("http://localhost:5000/casos/5/devolucion");
+            const response = await fetch(`http://localhost:5000/casos/${params.casoId}/devolucion`);
             if (!response.ok) {
             throw new Error("Error al obtener los datos");
             }
@@ -16,9 +19,8 @@ export default function Devolucion(){
             console.error("Error al obtener los casos:", error);
         }
         }
-    
         fetchDevoluciones();
-    }, []);
+    }, [devoluciones]);
 return(
     <>
     {devoluciones.map((devolucion)=>(
