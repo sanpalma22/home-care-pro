@@ -1,17 +1,18 @@
 "use client";
 import Link from "next/link";
 
-import { useRouter } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
 
 export default function Caso() {
   const [caso, setCaso] = useState({});
   const router = useRouter();
+  const params = useParams()
 
   useEffect(() => {
     async function fetchCaso() {
       try {
-        const response = await fetch(`http://localhost:5000/casos/5`);
+        const response = await fetch(`http://localhost:5000/casos/${params.casoId}`);
         if (!response.ok) {
           throw new Error("Error al obtener los datos");
         }
@@ -23,7 +24,7 @@ export default function Caso() {
     }
 
     fetchCaso();
-  }, [router.caso]);
+  }, [caso]);
 
   
   return (

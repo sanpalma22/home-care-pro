@@ -17,7 +17,7 @@ body{
   flex-direction: column;
   width: 15%;
   height: 100vh;
-  position: fixed;
+  /* position: fixed; */
   
   a{
     padding: 10px 5px;
