@@ -3,31 +3,17 @@
   padding: 0;
   margin: 0;
   font-family: sans-serif;
-  
+  list-style: none;
 }
 
 body{
   background-color: #f2f5ff;
 }
 
-
-.sidebar{
-  background-color: #ffa5a5;
+.flex{
   display: flex;
-  flex-direction: column;
-  width: 15%;
-  height: 100vh;
-  /* position: fixed; */
-  
-  a{
-    padding: 10px 5px;
-  }
-  a:hover{
-    background-color: #eee;
-  }
-}
-a{
-  color: inherit;
-  text-decoration: none;
 }
 
+.main-content{
+  padding: 1rem;
+}

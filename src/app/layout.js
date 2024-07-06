@@ -2,6 +2,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Link from "next/link";
 import Header from "./components/Header";
+import Sidebar from "./components/Sidebar";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -14,23 +15,12 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
-        <div className="container">
         <Header texto={"Header"}></Header>
-          <div className="content">
-            <div className="sidebar">
-              
-              <div className="sidebar-header"></div>
-              
-              <Link href="/dashboard">Dashboard</Link>
-              <Link href="/casos">Casos</Link>
-              <Link href="/prestadores">Prestadores</Link>
-              <Link href="/facturas">Facturas</Link>
-            </div>
+        <div className="flex">
+          <Sidebar/>
+          <div className="main-content">
+            {children}
           </div>
-          
-          <div className="main-content">{children}</div>
-          
-
         </div>
       </body>
     </html>

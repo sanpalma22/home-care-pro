@@ -1,0 +1,16 @@
+.navbar{
+    background-color: #fff;
+    padding: 1.5rem 2rem;
+    border-radius: 10px;
+}
+.lista{
+    display: flex;
+    gap: 25px;
+}
+.btnAgregar{
+    padding: 1rem;
+    background-image: linear-gradient(#14ADD6, #384295);
+    border-radius: 5px;
+    color: white;
+}
+
