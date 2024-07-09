@@ -8,13 +8,18 @@
     /* position: fixed; */
     
     a{
-      padding: 10px 5px;
+      padding: 15px 15px;
     }
     a:hover{
-      background-color: #eee;
+      background-color: #d7efff;
     }
   }
-  a{
-    color: inherit;
-    text-decoration: none;
-  }
+
+a{
+  color: inherit;
+  text-decoration: none;
+}
+
+.selected{
+  background-color: #f2f5ff;
+}

@@ -2,15 +2,10 @@
     background-color: #fff;
     padding: 1.5rem 2rem;
     border-radius: 10px;
+    font-size: small;
+    color: #515151;
 }
 .lista{
     display: flex;
-    gap: 25px;
+    gap: 40px;
 }
-.btnAgregar{
-    padding: 1rem;
-    background-image: linear-gradient(#14ADD6, #384295);
-    border-radius: 5px;
-    color: white;
-}
-

@@ -1,12 +1,11 @@
 "use client";
 import Link from "next/link";
 
-import { useParams, useRouter } from "next/navigation";
+import { useParams } from "next/navigation";
 import { useState, useEffect } from "react";
 
 export default function Caso() {
   const [caso, setCaso] = useState({});
-  const router = useRouter();
   const params = useParams()
 
   useEffect(() => {

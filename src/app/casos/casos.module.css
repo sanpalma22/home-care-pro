@@ -2,7 +2,8 @@
 
 .casosActivos {
     padding: 20px;
-    font-family: Arial, sans-serif;
+    background-color: #fff;
+    border-radius: 10px;
   }
   
   .casosTableContainer {
@@ -14,8 +15,6 @@
     width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
   }
   
   .casosTable th,
@@ -25,7 +24,7 @@
   }
   
   .casosTable th {
-    background-color: #f2f2f2;
+   
     color: #333;
     font-weight: bold;
   }
