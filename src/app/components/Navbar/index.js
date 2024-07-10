@@ -1,14 +1,21 @@
+"use client";
 import Link from "next/link";
 import styles from './navbar.css'
-import BotonAgregar from "../BotonAgregar";
+import { usePathname } from 'next/navigation'
 
-export default function Navbar({links}) {
+export default function Navbar({rutas}) {
+  const pathname=usePathname();
   return (
     <div className="navbar">
       <ul className="lista">
-        {links.map((link)=>(
+        {rutas.map((ruta)=>(
           <li>
-            <Link href={link.root} className={link.class!=null?link.class:null}>{link.texto}</Link>
+            <Link 
+              href={ruta.root} 
+              className={[ruta.class!=null?ruta.class:null, 
+              pathname.includes(ruta.root)?"selectedNav":null
+              ].filter(Boolean).join(" ")} 
+              >{ruta.texto}</Link>
           </li>
         ))}
       </ul>

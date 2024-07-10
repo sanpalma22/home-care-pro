@@ -4,8 +4,13 @@
     border-radius: 10px;
     font-size: small;
     color: #515151;
+    margin-bottom: 1rem;
 }
 .lista{
     display: flex;
     gap: 40px;
+}
+
+.selectedNav{
+    color: #4988da;
 }

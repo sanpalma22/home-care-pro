@@ -1,4 +1,4 @@
-export default function AgregarCasos() {
+export default function IngresarCasos() {
     return (
       <main>
         <div>
@@ -6,7 +6,7 @@ export default function AgregarCasos() {
         <form>
             <label htmlFor="nombreInput">Nombre:</label>
             <input type="text" placeholder="Nombre de la persona" />
-            <input type="submit" value="Agregar"/>
+            <input type="submit" value="Ingresar"/>
           </form>
         </div>
       </main>

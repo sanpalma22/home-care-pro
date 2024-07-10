@@ -5,13 +5,33 @@ import { usePathname } from 'next/navigation'
 
 export default function Sidebar() {
   const pathname = usePathname();
+  const rutas = [
+    {
+      texto : "Dashboard",
+      root: "/dashboard"
+    },
+    {
+      texto : "Casos",
+      root: "/casos"
+    },
+    {
+      texto : "Prestadores",
+      root: "/prestadores",
+    },
+    {
+      texto : "Facturas",
+      root: "/facturas",
+    }
+  ]
+
   return (
     <div className="sidebar">
       <div className="sidebar-header"></div>
-        <Link href="/dashboard" className={pathname.includes("/dashboard")?"selected":""}>Dashboard</Link>
-        <Link href="/casos" className={pathname.includes("/casos")?"selected":""}>Casos</Link>
-        <Link href="/prestadores" className={pathname.includes("/prestadores")?"selected":""}>Prestadores</Link>
-        <Link href="/facturas" className={pathname.includes("/facturas")?"selected":""}>Facturas</Link>
+        {
+          rutas.map((ruta)=>(
+              <Link href={ruta.root} className={pathname.includes(ruta.root)?"selected":null}>{ruta.texto}</Link>
+          ))
+        }
     </div>
   );
 }

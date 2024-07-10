@@ -17,16 +17,17 @@ export default function CasosLayout({ children }) {
     },
     {
       texto : "Ingresar caso",
-      root: "/casos/insertar",
-      class : "btnAgregar"
+      root: "/casos/ingresar",
+      class : "btnIngresar"
     }
   ]
   const pathname = usePathname()
   const hideNavbarRoutes = ["/casos/ingresar"];
   return (
     <>
-      {!hideNavbarRoutes.includes(pathname) && <Navbar links={rutas}></Navbar>}  
+      {!hideNavbarRoutes.includes(pathname) && <Navbar rutas={rutas}></Navbar>}  
       {children}
+      
     </>
   );
 }
