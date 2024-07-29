@@ -23,7 +23,7 @@ export default function CasosActivos() {
 
   return (
     <main>
-      <div className={styles.casosActivos}>
+      <div className="mainContainer">
             <h1>Casos Activos</h1>
             <table className={styles.casosTable}>
                 <thead>
@@ -46,7 +46,7 @@ export default function CasosActivos() {
                             <td>{caso.NombrePrestacion}</td>
                             <td>{caso.FechaOcurrencia}</td>
                             <td>{caso.FechaSolicitud}</td>
-                            <td><Link href={`/casos/${caso.IdCaso}`}>Ver info</Link></td>
+                            <td><Link href={`/casos/${caso.IdCaso}`} className="verInfo">Ver info</Link></td>
                         </tr>
                     ))}
                 </tbody>

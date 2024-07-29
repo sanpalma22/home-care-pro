@@ -29,3 +29,16 @@ h1{
   border-radius: 10px;
   color: white;
 }
+
+.verInfo{
+  padding: 0.4rem;
+  color: white;
+  background: linear-gradient(135deg, #14ADD6 0%, #384295 100%);
+  border-radius: 8px;
+}
+
+.mainContainer{
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+}
