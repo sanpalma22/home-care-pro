@@ -29,7 +29,10 @@ export default function Sidebar() {
       <div className="sidebar-header"></div>
         {
           rutas.map((ruta)=>(
-              <Link href={ruta.root} className={pathname.includes(ruta.root)?"selected":null}>{ruta.texto}</Link>
+              <Link href={ruta.root} className={pathname.includes(ruta.root)?"selected":null}>
+                <i></i>
+                {ruta.texto} 
+              </Link>
           ))
         }
     </div>

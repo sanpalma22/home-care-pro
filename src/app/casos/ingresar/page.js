@@ -6,6 +6,7 @@ export default function IngresarCasos() {
         <div className="mainContainer">
           <h1>Ingresar Casos</h1>
         <form>
+          
           <div className={styles.formIngreso}>
             <div className={styles.ingreso}>
               <label htmlFor="nombreInput">Nombre:</label>
@@ -47,17 +48,19 @@ export default function IngresarCasos() {
               <input type="text" placeholder="Fecha de nacimiento"/>
             </div>
 
-            <div className={styles.ingresoMedio}>
+            <div className={styles.ingreso}>
               <label htmlFor="nombreInput">Cantidad de dias:</label>
               <input type="text" placeholder="Cantidad de dias"/>
             </div>
 
-            <div className={styles.ingresoMedio}>
+            <div className={styles.ingreso}>
               <label htmlFor="nombreInput">Horas por dia:</label>
               <input type="text" placeholder="Horas por dia"/>
             </div>
 
-            <button type="submit" className="btnIngresar">Ingresar</button>
+          </div>
+          <div className={styles.containerBtn}>
+            <button type="submit" className="btnIngresar">Ingresar caso</button>
           </div>
           </form>
         </div>
