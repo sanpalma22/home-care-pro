@@ -20,7 +20,7 @@ export default function Devolucion(){
         }
         }
         fetchDevoluciones();
-    }, [devoluciones]);
+    }, []);
 return(
     <>
     {devoluciones.map((devolucion)=>(
