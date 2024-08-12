@@ -1,4 +1,5 @@
 "use client";
+import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 
 export default function Prestadores() {
@@ -7,7 +8,7 @@ export default function Prestadores() {
     useEffect(() => {
       async function fetchPrestadores() {
           try {
-              const response = await fetch('http://localhost:5000/prestadores');
+              const response = await fetch('http://localhost:5000/medicos');
               if (!response.ok) {
                   throw new Error('Error al obtener los datos');
               }
@@ -24,14 +25,31 @@ export default function Prestadores() {
 
     return (
       <main>
-        <div>
-          <h1>Medicos</h1>
-          <ul>
-            {prestadores.map(prestador => (
-              <p>{prestador.Nombre}</p>
-            ))}
-          </ul>
+      <div className="mainContainer">
+            <h1>Prestadores</h1>
+            <table className="table">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Especialidad</th>
+                        <th>Localidad</th>
+                        <th>Género</th>
+                        <th className='accion'>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {prestadores.map((p) => (
+                        <tr key={p.IdPrestador}>
+                            <td>{p.Nombre}</td>
+                            <td>{p.Especialidad}</td>
+                            <td>{p.Localidad}</td>
+                            <td>{p.Genero}</td>
+                            <td><Link href={`/medico/${p.IdPrestador}`} className="verInfo">Ver info</Link></td>
+                        </tr>
+                    ))}
+                </tbody>
+            </table>
         </div>
-      </main>
+    </main>
     );
 }

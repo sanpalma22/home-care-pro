@@ -25,14 +25,14 @@ export default function CasosActivos() {
     <main>
       <div className="mainContainer">
             <h1>Casos Activos</h1>
-            <table className={styles.casosTable}>
+            <table className="table">
                 <thead>
                     <tr>
                         <th>Nombre Paciente</th>
                         <th>Diagnóstico</th>
                         <th>Nombre Prestador</th>
                         <th>Nombre Prestación</th>
-                        <th>Fecha de Ocurrencia</th>
+                        {/* <th>Fecha de Ocurrencia</th> */}
                         <th>Fecha de Solicitud</th>
                         <th>Acciones</th>
                     </tr>
@@ -44,7 +44,7 @@ export default function CasosActivos() {
                             <td>{caso.Diagnostico}</td>
                             <td>{caso.NombrePrestador}</td>
                             <td>{caso.NombrePrestacion}</td>
-                            <td>{caso.FechaOcurrencia}</td>
+                            {/* <td>{caso.FechaOcurrencia}</td> */}
                             <td>{caso.FechaSolicitud}</td>
                             <td><Link href={`/casos/${caso.IdCaso}`} className="verInfo">Ver info</Link></td>
                         </tr>
