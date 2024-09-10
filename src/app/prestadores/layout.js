@@ -9,20 +9,16 @@ export default function PrestadoresLayout({ children }) {
   const rutas = [
     {
       texto : "Prestadores",
-      root: "/medicos"
+      root: "/prestadores"
     },
     {
-      texto : "Historial casos",
-      root: "/casos/historial"
-    },
-    {
-      texto : "Ingresar caso",
-      root: "/casos/ingresar",
+      texto : "Ingresar prestador",
+      root: "/prestadores/ingresar",
       class : "btnIngresar"
     }
   ]
   const pathname = usePathname()
-  const hideNavbarRoutes = ["/casos/ingresar"];
+  const hideNavbarRoutes = ["/prestadores/ingresar"];
   return (
     <>
       {!hideNavbarRoutes.includes(pathname) && <Navbar rutas={rutas}></Navbar>}  

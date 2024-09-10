@@ -1,4 +1,5 @@
 "use client";
+import DevolucionAcord from "../../../components/DevolucionAcord";
 import { useParams } from "next/navigation";
 import { useState,useEffect } from "react";
 
@@ -22,11 +23,6 @@ export default function Devolucion(){
         fetchDevoluciones();
     }, []);
 return(
-    <>
-    {devoluciones.map((devolucion)=>(
-    <p> {devolucion.Descripcion}</p>
-
-    ))}
-    </>
+    <Devolucion></Devolucion>   
 )
 }
