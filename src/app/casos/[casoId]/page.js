@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-
+import styles from "./caso.module.css"
 import { useParams } from "next/navigation";
 import { useState, useEffect } from "react";
 
@@ -27,12 +27,39 @@ export default function Caso() {
 
   
   return (
-    <div className="infoCaso">
-      <p>Persona: {caso.NombrePaciente}</p>
-      <p>Nombre prerstador: {caso.NombrePrestador}</p>
-      <p>Fecha de Ocurrencia: {caso.FechaOcurrencia}</p>
-      <p>Fecha de Solicitud: {caso.FechaSolicitud}</p>
-      <Link href={`/casos/${caso.IdCaso}/devolucion`}>Devoluciones del médico</Link>
+    <div className={styles.infoCaso}>
+      <div className={styles.infoSection}>
+        <p className={styles.label}>Paciente:</p>
+        <p className={styles.value}>{caso.NombrePaciente}</p>
+      </div>
+      <div className={styles.infoSection}>
+        <p className={styles.label}>Prestador:</p>
+        <p className={styles.value}>{caso.NombrePrestador}</p>
+      </div>
+      <div className={styles.infoSection}>
+        <p className={styles.label}>Prestación:</p>
+        <p className={styles.value}>{caso.NombrePrestacionX}</p>
+      </div>
+      <div className={styles.infoSection}>
+        <p className={styles.label}>Diagnóstico:</p>
+        <p className={styles.value}>{caso.Diagnostico}</p>
+      </div>
+      <div className={styles.infoSection}>
+        <p className={styles.label}>Fecha de Ocurrencia:</p>
+        <p className={styles.value}>{caso.FechaOcurrencia}</p>
+      </div>
+      <div className={styles.infoSection}>
+        <p className={styles.label}>Fecha de Solicitud:</p>
+        <p className={styles.value}>{caso.FechaSolicitud}</p>
+      </div>
+      <div className={styles.btnContainer}>
+
+        <Link className="btnIngresar" href={`/casos/${caso.IdCaso}/devolucion`}>
+          Ver devoluciones
+        </Link>
+      </div>
     </div>
   );
-}
+};
+
+

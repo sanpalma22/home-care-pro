@@ -23,6 +23,10 @@ export default function Devolucion(){
         fetchDevoluciones();
     }, []);
 return(
-    <Devolucion></Devolucion>   
+    <>
+      {devoluciones.map((item, i) => (
+        <DevolucionAcord devolucion={item} index={i}></DevolucionAcord>
+      ))}
+    </>
 )
 }

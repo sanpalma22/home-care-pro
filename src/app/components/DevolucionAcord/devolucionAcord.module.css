@@ -1,0 +1,35 @@
+  .accordionItem {
+    width: 100%;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .accordionButton {
+    width: 100%;
+    background-color: #ffffff;
+    padding: 1.5rem 2rem;
+    text-align: left;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .accordionButton:hover {
+    background-color: #f3f3f3;
+  }
+  
+  .accordionButton.active {
+    background-color: #d1d1d1;
+  }
+  
+  .accordionContent {
+    background-color: #fafafa;
+    padding: 15px;
+    border-top: 1px solid #ddd;
+  }
+  
