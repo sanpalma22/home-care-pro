@@ -1,4 +1,5 @@
 "use client";
+import Back from "@/app/components/Back";
 import DevolucionAcord from "../../../components/DevolucionAcord";
 import { useParams } from "next/navigation";
 import { useState,useEffect } from "react";
@@ -24,8 +25,9 @@ export default function Devolucion(){
     }, []);
 return(
     <>
-      {devoluciones.map((item, i) => (
-        <DevolucionAcord devolucion={item} index={i}></DevolucionAcord>
+    <Back></Back>
+      {devoluciones.slice().reverse().map((item, i) => (
+        <DevolucionAcord devolucion={item} index={devoluciones.length-i}></DevolucionAcord>
       ))}
     </>
 )

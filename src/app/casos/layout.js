@@ -16,6 +16,10 @@ export default function CasosLayout({ children }) {
       root: "/casos/historial"
     },
     {
+      texto : "Solicitudes de cierre",
+      root: "/casos/solicitudes-finalizacion"
+    },
+    {
       texto : "Ingresar caso",
       root: "/casos/ingresar",
       class : "btnIngresar"

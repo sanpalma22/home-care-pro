@@ -50,7 +50,7 @@ export default function Caso() {
       </div>
       <div className={styles.infoSection}>
         <p className={styles.label}>Fecha de Solicitud:</p>
-        <p className={styles.value}>{caso.FechaSolicitud}</p>
+        {/* <p className={styles.value}>{caso.FechaSolicitud.split('T')[0]}</p> */}
       </div>
       <div className={styles.btnContainer}>
 
@@ -60,6 +60,7 @@ export default function Caso() {
       </div>
     </div>
   );
+  
 };
 
 

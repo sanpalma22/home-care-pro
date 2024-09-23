@@ -45,7 +45,7 @@ export default function CasosActivos() {
                             <td>{caso.NombrePrestador}</td>
                             <td>{caso.NombrePrestacion}</td>
                             {/* <td>{caso.FechaOcurrencia}</td> */}
-                            <td>{caso.FechaSolicitud}</td>
+                            <td>{caso.FechaSolicitud.split('T')[0]}</td>
                             <td><Link href={`/casos/${caso.IdCaso}`} className="verInfo">Ver info</Link></td>
                         </tr>
                     ))}
