@@ -1,6 +1,8 @@
 "use client";
+import { useRouter } from "next/navigation";
 import Back from "../../components/Back";
 import { useEffect, useState } from "react";
+
 
 export default function IngresarCasos() {
   const [formData, setFormData] = useState({
@@ -13,6 +15,25 @@ export default function IngresarCasos() {
     email: '',
     genero: '',
   });
+  const [especialidades,setEspecialidades]=useState([{}])
+  const router =useRouter();
+
+  useEffect(() => {
+    async function fetchEspecialidades() {
+      try {
+        const response = await fetch("http://localhost:5000/especialidad");
+        if (!response.ok) {
+          throw new Error("Error al obtener los datos");
+        }
+        const data = await response.json();
+        setEspecialidades(data);
+      } catch (error) {
+        console.error("Error al obtener los datos:", error);
+      }
+    }
+
+    fetchEspecialidades();
+  }, []);
 
   const handleChange=(e)=>{
     const {name,value}=e.target
@@ -24,7 +45,7 @@ export default function IngresarCasos() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-      const response = await fetch('http://localhost:5000/medicos', { 
+      const response = await fetch('http://localhost:5000/prestadores', { 
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -40,6 +61,8 @@ export default function IngresarCasos() {
       else{
           console.error("error")
         }
+
+      router.push("/prestadores")
     }
 
 
@@ -67,10 +90,16 @@ export default function IngresarCasos() {
             <input name="dni" type="text" placeholder="DNI" onChange={handleChange} required />
           </div>
           
+          
           <div className="ingreso">
-            <label htmlFor="nombreInput">Especialidad:</label>
-            <input name="especialidad" type="text" placeholder="Especialidad" onChange={handleChange} required />
-          </div>
+              <label htmlFor="nombreInput">Especialidad:</label>
+              <select onChange={handleChange} name="especialidad" className="selectIngreso">
+                <option disabled selected>Seleccionar</option>
+                {especialidades.map((e) => (
+                  <option value={e.IdEspecialidad}>{e.Nombre}</option>
+                ))}
+              </select>
+            </div>
 
           <div className="ingreso">
             <label htmlFor="nombreInput">Localidad:</label>
@@ -93,9 +122,14 @@ export default function IngresarCasos() {
           </div>
 
           <div className="ingreso">
-            <label htmlFor="nombreInput">Género:</label>
-            <input name="genero" type="text" placeholder="Género" onChange={handleChange} required />
-          </div>
+              <label htmlFor="nombreInput">Género:</label>
+              <select onChange={handleChange} name="genero" className="selectIngreso">
+                <option disabled selected>Seleccionar</option>
+                <option>Masculino</option>
+                <option>Femenino</option>
+                <option>X</option>
+              </select>
+            </div>
 
           <div className="ingreso">
             <label htmlFor="nombreInput">Contraseña:</label>

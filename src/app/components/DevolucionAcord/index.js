@@ -19,7 +19,7 @@ export default function DevolucionAcord({devolucion,index}) {
             }`}
             onClick={() => handleToggle(index)}
           >
-            Dia {index+1} : {devolucion.Fecha}
+            Dia {index} : {devolucion.Fecha}
           </button>
           {openIndex === index && (
             <div className={styles.accordionContent}>

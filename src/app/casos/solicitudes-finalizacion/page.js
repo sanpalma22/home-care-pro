@@ -2,7 +2,7 @@
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import styles from "../casos.module.css"
-export default function HistorialCasos() {
+export default function SolicitudesFinalizacion() {
   const [casos, setCasos] = useState([]);
   useEffect(() => {
     async function fetchCasos() {
@@ -12,19 +12,20 @@ export default function HistorialCasos() {
           throw new Error("Error al obtener los datos");
         }
         const data = await response.json();
-        setCasos(data);
+        const dataFilter= data.filter((d)=>d.NombreSituacion=="Solicitud cierre")
+        setCasos(dataFilter);
       } catch (error) {
         console.error("Error al obtener los casos:", error);
       }
     }
+
     fetchCasos();
-    
   }, []);
-  console.log(casos)
+
   return (
     <main>
       <div className="mainContainer">
-            <h1>Historial de casos</h1>
+            <h1>Casos Activos</h1>
             <table className="table">
                 <thead>
                     <tr>
@@ -46,7 +47,6 @@ export default function HistorialCasos() {
                             <td>{caso.NombrePrestacion}</td>
                             <td>{caso.FechaSolicitud.split('T')[0]}</td>
                             <td className={caso.NombreSituacion=="Activo"?"activo":"finalizado"}>{caso.NombreSituacion}</td>
-                            
                             <td><Link href={`/casos/${caso.IdCaso}`} className="verInfo">Ver info</Link></td>
                         </tr>
                     ))}
