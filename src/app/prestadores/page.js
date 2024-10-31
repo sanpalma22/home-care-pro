@@ -18,6 +18,7 @@ export default function Prestadores() {
               console.error('Error al obtener los prestadores:', error);
           }
       }
+
       console.log(prestadores)
       fetchPrestadores();
   }, []);
@@ -44,7 +45,7 @@ export default function Prestadores() {
                             <td>{p.Especialidad}</td>
                             <td>{p.Localidad}</td>
                             <td>{p.Genero}</td>
-                            <td><Link href={`/medico/${p.IdPrestador}`} className="verInfo">Ver info</Link></td>
+                            <td><Link href={`/prestadores/${p.IdPrestador}`} className="verInfo">Ver info</Link></td>
                         </tr>
                     ))}
                 </tbody>
