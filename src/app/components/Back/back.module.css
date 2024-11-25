@@ -1,0 +1,10 @@
+.back {
+    color: #4988da;              
+    background: none;         
+    border: none;                     
+    cursor: pointer;  
+    font-size: large;            
+  }
+  .back img{
+    width: 20px;
+  }

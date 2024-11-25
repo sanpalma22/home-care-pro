@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import styles from "../casos.module.css"
 export default function CasosActivos() {
   const [casos, setCasos] = useState([]);
-  useEffect(() => {
+useEffect(() => {
     async function fetchCasos() {
       try {
         const response = await fetch("http://localhost:5000/casos");
@@ -12,7 +12,7 @@ export default function CasosActivos() {
           throw new Error("Error al obtener los datos");
         }
         const data = await response.json();
-        setCasos(data);
+        setCasos(data.filter(caso => caso.IdSituacion === 2));
       } catch (error) {
         console.error("Error al obtener los casos:", error);
       }
@@ -22,6 +22,9 @@ export default function CasosActivos() {
   }, []);
 
   return (
+    casos.length === 0 ? (
+      <p className="textoSinRegistros">No tiene casos asociados</p>
+  ) : (
     <main>
       <div className="mainContainer">
             <h1>Casos Activos</h1>
@@ -53,5 +56,5 @@ export default function CasosActivos() {
             </table>
         </div>
     </main>
-  );
+  ));
 }

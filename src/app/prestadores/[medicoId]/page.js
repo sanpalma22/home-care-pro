@@ -1,13 +1,15 @@
 "use client";
+import Link from "next/link";
 import styles from "./medico.module.css";
 import { useParams } from "next/navigation";
 import { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
 
 export default function InfoPrestadores() {
   const params = useParams();
   const [prestador, setPrestador] = useState({});
   const [casos, setCasos] = useState([]);
-
+  const router =useRouter();
   useEffect(() => {
     async function fetchPrestador() {
       try {
@@ -38,12 +40,24 @@ export default function InfoPrestadores() {
     fetchPrestador();
     fetchCasos();
   }, [params.medicoId]);
+ 
+  function darBaja() {
+    try {
+        // Espera la respuesta de la API antes de hacer la redirección
+        fetch(`http://localhost:5000/prestadores/baja/${params.medicoId}`, {
+            method: 'PUT',
+        })
+        .then((response) => response.json())
+        router.push('/prestadores');
+    } catch (error) {
+        console.error("Error en la función darbaja  :", error);
+    }
+}
 
   return (
     <>
     
     <div className={styles.container}>
-      {/* Información del prestador */}
       <div className={styles.infoCard}>
         <h2>Información del Prestador</h2>
         <div className={styles.infoSection}>
@@ -82,41 +96,42 @@ export default function InfoPrestadores() {
           <p className={styles.label}>Género:</p>
           <p className={styles.value}>{prestador.Genero}</p>
         </div>
+      <button onClick={darBaja} className={styles.darBaja}>Dar de baja</button>
       </div>
       </div>
 
       
-      <div className={styles.casosCard}>
-        <h2>Casos Asociados</h2>
-        {casos.length > 0 ? (
-          casos.map((caso) => (
-            <div key={caso.IdCaso} className={styles.casoItem}>
-              <div className={styles.infoSection}>
-                <p className={styles.label}>ID Caso:</p>
-                <p className={styles.value}>{caso.IdCaso}</p>
-              </div>
-              <div className={styles.infoSection}>
-                <p className={styles.label}>Diagnóstico:</p>
-                <p className={styles.value}>{caso.Diagnostico}</p>
-              </div>
-              <div className={styles.infoSection}>
-                <p className={styles.label}>Fecha de Ocurrencia:</p>
-                <p className={styles.value}>{caso.FechaOcurrencia}</p>
-              </div>
-              <div className={styles.infoSection}>
-                <p className={styles.label}>Fecha de Solicitud:</p>
-                <p className={styles.value}>{caso.FechaSolicitud}</p>
-              </div>
-              <div className={styles.infoSection}>
-                <p className={styles.label}>En Curso:</p>
-                <p className={styles.value}>{caso.EnCurso ? "Sí" : "No"}</p>
-              </div>
-            </div>
-          ))
-        ) : (
-          <p>No hay casos asociados para este prestador.</p>
-        )}
-      </div>
+      {casos.length === 0 ? (
+    <p className="textoSinRegistros">No tiene casos asociados</p>
+) : (
+    <main>
+        <div className="mainContainer">
+            <h1>Casos asociados</h1>
+            <table className="table">
+                <thead>
+                    <tr>
+                        <th>Nombre Paciente</th>
+                        <th>Diagnóstico</th>
+                        <th>Fecha de Solicitud</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {casos.map((caso) => (
+                        <tr key={caso.IdCaso}>
+                            <td>{caso.NombrePaciente}</td>
+                            <td>{caso.Diagnostico}</td>
+                            <td>{caso.FechaSolicitud.split('T')[0]}</td>
+                            <td><Link href={`/casos/${caso.IdCaso}`} className="verInfo">Ver info</Link></td>
+                        </tr>
+                    ))}
+                </tbody>
+            </table>
+        </div>
+    </main>
+)}
+
+
       </>
   );
 }

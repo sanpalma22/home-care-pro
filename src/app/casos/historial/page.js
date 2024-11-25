@@ -22,6 +22,9 @@ export default function HistorialCasos() {
   }, []);
   console.log(casos)
   return (
+    casos.length === 0 ? (
+      <p className="textoSinRegistros">No tiene casos asociados</p>
+  ) : (
     <main>
       <div className="mainContainer">
             <h1>Historial de casos</h1>
@@ -54,5 +57,5 @@ export default function HistorialCasos() {
             </table>
         </div>
     </main>
-  );
+  ));
 }

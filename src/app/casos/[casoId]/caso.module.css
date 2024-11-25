@@ -36,4 +36,18 @@
   .btnContainer{
     display: flex;
     justify-content: center;
+    gap: 20px;
   }
+  
+  .cerrarCaso {
+    color: red;              
+    background: none;         
+    border: none;             
+    font-size: 16px;          
+    cursor: pointer;                  
+  }
+  
+  .cerrarCaso:hover {
+    color: darkred;           
+  }
+  

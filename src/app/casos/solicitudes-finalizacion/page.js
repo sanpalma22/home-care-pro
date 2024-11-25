@@ -23,6 +23,10 @@ export default function SolicitudesFinalizacion() {
   }, []);
 
   return (
+    casos.length === 0 ? (
+      <p className="textoSinRegistros">No tiene casos asociados</p>
+  ) : (
+    
     <main>
       <div className="mainContainer">
             <h1>Casos Activos</h1>
@@ -54,5 +58,5 @@ export default function SolicitudesFinalizacion() {
             </table>
         </div>
     </main>
-  );
+  ));
 }

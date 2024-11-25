@@ -13,7 +13,7 @@ export default function Prestadores() {
                   throw new Error('Error al obtener los datos');
               }
               const data = await response.json();
-              setPrestadores(data);
+              setPrestadores(data.filter(p => p.Activo === true));
           } catch (error) {
               console.error('Error al obtener los prestadores:', error);
           }
@@ -27,7 +27,7 @@ export default function Prestadores() {
     return (
       <main>
       <div className="mainContainer">
-            <h1>Prestadores</h1>
+            <h1>Prestadores activos</h1>
             <table className="table">
                 <thead>
                     <tr>
