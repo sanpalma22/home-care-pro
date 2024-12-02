@@ -16,6 +16,8 @@ export default function IngresarCasos() {
     cantDias: "",
     horasDia: "",
     prestador: "",
+    mail: ""
+    
   });
   const [prestadores, setPrestadores] = useState([]);
   const [prestaciones, setPrestaciones] = useState([]);
@@ -192,6 +194,19 @@ export default function IngresarCasos() {
                 name="horasDia"
                 type="number"
                 placeholder="Horas por dia"
+                onChange={handleChange}
+                required
+                min="0"
+                max="24"
+              />
+            </div>
+
+            <div className="ingreso">
+              <label htmlFor="nombreInput">mail</label>
+              <input
+                name="mail"
+                type="mail"
+                placeholder="mail"
                 onChange={handleChange}
                 required
                 min="0"
