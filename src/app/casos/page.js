@@ -23,7 +23,7 @@ export default function Casos() {
 
   return (
     casos.length === 0 ? (
-      <p className="textoSinRegistros">No tiene casos asociados</p>
+      <p className="textoSinRegistros">No hay casos activos</p>
   ) : (
     <main>
       <div>

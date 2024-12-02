@@ -23,7 +23,7 @@ export default function HistorialCasos() {
   console.log(casos)
   return (
     casos.length === 0 ? (
-      <p className="textoSinRegistros">No tiene casos asociados</p>
+      <p className="textoSinRegistros">Historial de casos activos</p>
   ) : (
     <main>
       <div className="mainContainer">

@@ -42,6 +42,7 @@ export default function InfoPrestadores() {
   }, [params.medicoId]);
  
   function darBaja() {
+    if (window.confirm("¿Estás seguro de que deseas dar de baja a este médico?")) {
     try {
         // Espera la respuesta de la API antes de hacer la redirección
         fetch(`http://localhost:5000/prestadores/baja/${params.medicoId}`, {
@@ -51,7 +52,7 @@ export default function InfoPrestadores() {
         router.push('/prestadores');
     } catch (error) {
         console.error("Error en la función darbaja  :", error);
-    }
+    }}
 }
 
   return (
@@ -63,10 +64,6 @@ export default function InfoPrestadores() {
         <div className={styles.infoSection}>
           <p className={styles.label}>Nombre:</p>
           <p className={styles.value}>{prestador.Nombre}</p>
-        </div>
-        <div className={styles.infoSection}>
-          <p className={styles.label}>Apellido:</p>
-          <p className={styles.value}>{prestador.Apellido}</p>
         </div>
         <div className={styles.infoSection}>
           <p className={styles.label}>Especialidad:</p>

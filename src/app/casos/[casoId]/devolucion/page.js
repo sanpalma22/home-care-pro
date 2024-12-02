@@ -23,12 +23,16 @@ export default function Devolucion(){
         }
         fetchDevoluciones();
     }, []);
-return(
-    <>
-    <Back></Back>
-      {devoluciones.slice().reverse().map((item, i) => (
-        <DevolucionAcord devolucion={item} index={devoluciones.length-i}></DevolucionAcord>
-      ))}
-    </>
-)
+    return (
+        <>
+            <Back />
+            {devoluciones.length === 0 ? (
+                <p className="textoSinRegistros">Caso sin devoluciones</p>
+            ) : (
+                devoluciones.slice().reverse().map((item, i) => (
+                    <DevolucionAcord devolucion={item} index={devoluciones.length - i} key={item.IdDevolucion} />
+                ))
+            )}
+        </>
+    );
 }

@@ -27,16 +27,20 @@ export default function Caso() {
   }, [caso]);
 
   function cerrarCaso() {
-    try {
-        // Espera la respuesta de la API antes de hacer la redirección
-        fetch(`http://localhost:5000/casos/confirmar/${params.casoId}`, {
-            method: 'PUT',
-        })
-        .then((response) => response.json())
-        router.push('/casos/solicitudes-finalizacion');
-    } catch (error) {
-        console.error("Error en la función cerrarCaso:", error);
+    if(window.confirm("¿Estás seguro que deseas cerrar el caso?")){
+
+      try {
+          // Espera la respuesta de la API antes de hacer la redirección
+          fetch(`http://localhost:5000/casos/confirmar/${params.casoId}`, {
+              method: 'PUT',
+          })
+          .then((response) => response.json())
+          router.push('/casos/solicitudes-finalizacion');
+      } catch (error) {
+          console.error("Error en la función cerrarCaso:", error);
+      }
     }
+
 }
     
     return (
@@ -58,12 +62,8 @@ export default function Caso() {
           <p className={styles.value}>{caso.Diagnostico}</p>
         </div>
         <div className={styles.infoSection}>
-          <p className={styles.label}>Fecha de Ocurrencia:</p>
-          <p className={styles.value}>{caso.FechaOcurrencia}</p>
-        </div>
-        <div className={styles.infoSection}>
           <p className={styles.label}>Fecha de Solicitud:</p>
-          {/* <p className={styles.value}>{caso.FechaSolicitud.split('T')[0]}</p> */}
+          <p className={styles.value}>{caso.FechaSolicitud ? caso.FechaSolicitud.split('T')[0] : 'Fecha no disponible'}</p>
         </div>
         <div className={styles.btnContainer}>
   

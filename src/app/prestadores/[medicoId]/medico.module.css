@@ -28,3 +28,14 @@
     margin-bottom: 0;
   }
   
+  .darBaja {
+    color: red;              
+    background: none;         
+    border: none;             
+    font-size: 16px;          
+    cursor: pointer;                  
+  }
+  
+  .darBaja:hover {
+    color: darkred;           
+  }

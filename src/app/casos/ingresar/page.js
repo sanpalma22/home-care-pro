@@ -201,15 +201,11 @@ export default function IngresarCasos() {
 
             <div className="ingreso">
               <label htmlFor="nombreInput">Prestador:</label>
-              <select className="selectIngreso">
-                <option 
-                name="prestador"
-                onChange={handleChange}
-                 disabled selected>Seleccionar</option>
-                {prestadores.map((p) => (
-                  <option value={p.IdPrestador}>{p.Nombre}</option>
-                ))}
-                
+              <select name="prestador" onChange={handleChange} className="selectIngreso">
+                  <option disabled selected>Seleccionar</option>
+                  {prestadores.map((p) => (
+                    <option value={p.IdPrestador}>{p.Nombre}</option>
+                  ))}
               </select>
             </div>
           </div>

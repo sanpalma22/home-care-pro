@@ -24,12 +24,12 @@ export default function SolicitudesFinalizacion() {
 
   return (
     casos.length === 0 ? (
-      <p className="textoSinRegistros">No tiene casos asociados</p>
+      <p className="textoSinRegistros">No hay solicitudes de finalizacion</p>
   ) : (
     
     <main>
       <div className="mainContainer">
-            <h1>Casos Activos</h1>
+            <h1>Solicitudes</h1>
             <table className="table">
                 <thead>
                     <tr>

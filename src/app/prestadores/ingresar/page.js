@@ -81,11 +81,6 @@ export default function IngresarCasos() {
           </div>
 
           <div className="ingreso">
-            <label htmlFor="nombreInput">Apellido:</label>
-            <input name="apellido" type="text" placeholder="Apellido" onChange={handleChange} required />
-          </div>
-
-          <div className="ingreso">
             <label htmlFor="nombreInput">DNI:</label>
             <input name="dni" type="text" placeholder="DNI" onChange={handleChange} required />
           </div>
